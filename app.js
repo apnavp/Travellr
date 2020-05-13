@@ -1,6 +1,6 @@
 //require express
 var express = require('express');
-var session = require('express-session');
+var session = require('cookie-session');
 var app = express();
 //require express end
 

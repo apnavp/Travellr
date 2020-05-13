@@ -3,9 +3,9 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var userProfile = require('../model/UserProfile');
-var session = require('express-session');
+var session = require('cookie-session');
 var userDbUtil = require('../utility/UserDB');
-var session = require('express-session');
+
 var connectionDB = require('../utility/connectionDB');
 var UserConnectionObject = require('../model/UserConnection.js');
 var userProfileDB = require('../utility/UserProfileDB.js');
