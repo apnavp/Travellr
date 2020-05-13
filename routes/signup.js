@@ -55,6 +55,18 @@ router.post('/', urlencodedParser,
             min: 5
         })
         .withMessage('password should contain atleast 5 characters.')
+        // custom validator to check for entered date greater than current date
+        .custom((value,{ request }) => {
+            pass1=req.body.password1
+          console.log("this is passsword1" + pass1);
+          console.log("this is password2" + value);
+          if (pass2 == value) {
+            return true
+          }
+          return false
+        })
+        .withMessage('Date should be greater than the current date.')
+
         .escape(),
 
         check("fname")
@@ -94,18 +106,6 @@ router.post('/', urlencodedParser,
         .withMessage("Address Field cannot be blank")
         .escape(),
 
-        //custom validator to check for entered date greater than current date
-        // .custom((value) => {
-        //   var GivenDate = new Date(value);
-        //   var CurrentDate = new Date();
-        //   console.log("this is given date" + GivenDate);
-        //   console.log("this is today's date" + CurrentDate);
-        //   if (GivenDate > CurrentDate) {
-        //     return true
-        //   }
-        //   return false
-        // })
-        // .withMessage('Date should be greater than the current date.')
 
 
         check("city")
