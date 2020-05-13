@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var userProfileDB = require('../utility/UserProfileDB.js');
-var userDbUtil = require('../utility/userDB');
+var userDbUtil = require('../utility/UserDB');
 const {
     check,
     validationResult,
