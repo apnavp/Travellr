@@ -24,8 +24,9 @@ var connectionSchema = new Schema({
 var connectionDB = mongoose.model('connections', connectionSchema);
 
 
-mongoose.connect('mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/test?retryWrites=true&w=majority', {
-  useNewUrlParser: true
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/traveller', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
