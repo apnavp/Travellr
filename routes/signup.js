@@ -57,7 +57,7 @@ router.post('/', urlencodedParser,
         .withMessage('password should contain atleast 5 characters.')
         // custom validator to check for entered date greater than current date
         .custom((value,{ request }) => {
-            pass1=req.body.password1
+            pass1=request.body.password1
           console.log("this is passsword1" + pass1);
           console.log("this is password2" + value);
           if (pass2 == value) {
