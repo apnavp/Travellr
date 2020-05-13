@@ -23,7 +23,8 @@ var connectionSchema = new Schema({
 
 var connectionDB = mongoose.model('connections', connectionSchema);
 
-mongoose.connect('mongodb://localhost/traveller', {
+
+mongoose.connect('mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true
 });
 var db = mongoose.connection;
