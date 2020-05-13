@@ -24,7 +24,7 @@ var connectionSchema = new Schema({
 var connectionDB = mongoose.model('connections', connectionSchema);
 
 // ||process.env.MONGODB_URI || 'mongodb://localhost/traveller'
-mongoose.connect("mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect("mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/traveller?retryWrites=true&w=majority"
   , {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -32,7 +32,7 @@ mongoose.connect("mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/test
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-  console.log("we are connected with Traveller database")
+  console.log("we are connected with Traveller database");
 }, {
   useUnifiedTopology: true
 });
