@@ -20,7 +20,7 @@ var urlencodedParser = bodyParser.urlencoded({
 
 
 router.get('/logout', function (request, response) {
-  request.session.destroy();
+  request.session=null;
   response.render('index', {
     session: undefined
   });
