@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link href="/assets/stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- Header start for Login -->
+  <%- include ('partials/header.ejs') %>
+  <!-- Header end for Login -->
+
+  <!-- navigation start for Login -->
+  <%- include ('partials/navigation.ejs') %>
+  <!-- navigation end for Login -->
+
+  <!-- main start for Login -->
+  <main>
+    <section>
+      <header>
+        <h2>Login</h2>
+      </header>
+      <%if(!Success){%>
+      <div class="alert alert-danger alert-dismissible fade in div_login">
+        <strong>Alert!</strong> &nbsp <%=msg%>
+      </div>
+      <%}%>
+      <form id="contact-for" class="form_nc" method="POST" action="login">
+        <div class="form_format">
+          <div class="form_div">
+            <label id="Login">Username</label>
+            <input type="text" name="login" placeholder="User Id here">
+            <% if(pageData[0]) { %>
+      <div class="alert alert-danger">
+        <%= pageData[0].msg %>
+      </div>
+      <% } %>
+      </div>
+      <div class="form_div">
+        <label id="Password">Password</label>
+        <input type="password" name="password" placeholder="Password">
+        <% if(pageData[1]) { %>
+        <div class="alert alert-danger">
+          <%= pageData[1].msg %>
+        </div>
+        <% } %>
+      </div>
+      <div class="form_div">
+        <input type="submit" class="submit_bttn" value="Log In" />
+      </div>
+      </div>
+      </form>
+    </section>
+  </main>
+  <!-- main end for Login -->
+
+  <!-- footer start for Login -->
+  <%- include ('partials/footer.ejs') %>
+  <!-- footer end for Login -->
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Connection</title>
+  <link href="/assets/stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- Header start for Connection -->
+  <%- include ('partials/header.ejs') %>
+  <!-- Header end for Connection -->
+  <!-- navigation start for Connection -->
+  <%- include ('partials/navigation.ejs') %>
+  <!-- navigation end for Connection -->
+  <!-- main start for Connection -->
+  <main>
+    <section>
+      <div class="conn_sections">
+        <div class="conn_left">
+          <div>
+            <header>
+              <h3> <%=qs.connection_name%> </h3>
+            </header>
+          </div>
+          <div class="conn_highlight"> <img src=<%=qs.imageurl%> width="100" height="100" alt="man image">
+            <div>
+              <p>Hosted by : <%=qs.hosted_by%> </p>
+              <p>Date : <%=qs.dateAndTime%> </p>
+              <p>Start location : <%=qs.start_location%> </p>
+            </div>
+          </div>
+          <div class="div_details">
+            <header>
+              <h3> Details</h3>
+            </header>
+            <div class="conn_details_p">
+              <p><%=qs.details%> </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>Are you Interested?</p>
+          <form method="post" action="
+                     <%if(session==undefined){%>
+                       ../savedConnections?ID=<%=qs.connectionID %>&action=save
+                     <%}%>
+                     <%if(session!=undefined){%>
+                       ../savedConnections?ID=<%= qs.connectionID %>&action=save
+                     <%}%>
+                     ">
+                     <button class="conn_button1 " name="formValue" value="YES" > Yes</button>
+                     <button class="conn_button2" name="formValue" value="NO" >No</button>
+                     <button class="conn_button3" name="formValue"  value="MAYBE">Maybe</button>
+                     </form>
+      </div>
+    </div>
+  </section>
+  </main>
+  <!-- main end for Connection -->
+  <!-- footer start for Connection -->
+  <%- include ('partials/footer.ejs') %>
+  <!-- footer end for Connection -->
+</body>
+</html>

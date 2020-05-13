@@ -1,0 +1,31 @@
+<!-- header start --------------------------------------------------------->
+<header class="banner">
+  <div>
+    <div class="nav_header">
+      <div class="nav_header_div"> <a href="/"><img class="logo" src="/assets/images/mountain.png" width="130"
+            height="130" alt="Mountain logo"></a>
+        <p>
+          <h1 class="banner_text">Traveller</h1>
+      </div>
+      <% if(session==undefined){%>
+      <nav class="nav_top_spacing">
+        <ul class="nav_top">
+          <li><a href="/newConnection">Start a new connection </a></li>
+          <li><a href="/login">Login </a></li>
+          <li><a href="/signup">Sign up </a></li>
+        </ul>
+      </nav>
+      <% }%>
+      <% if(session){%>
+      <nav class="nav_top_spacing">
+        <ul class="nav_top">
+          <li><a href="newConnection">Start a new connection </a></li>
+          <li><a href="savedConnections/logout">Log out </a></li>
+          <li><a href="savedconnections">My Connections </a></li>
+        </ul>
+      </nav>
+      <% }%>
+    </div>
+  </div>
+</header>
+<!-- header end --------------------------------------------------------->

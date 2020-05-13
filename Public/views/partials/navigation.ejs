@@ -1,0 +1,18 @@
+<!-- navigaion start ------------------------------------------------------>
+<%if(session==undefined){%>
+<nav class="nav_bottom">
+  <ul>
+    <li><a href="connections" class="nav_bottom_text">Connection</a></li>
+  </ul>
+</nav>
+<%}%>
+
+<%if(session){%>
+<nav class="nav_bottom">
+  <ul class="name_ph">
+    <li><a href="connections" class="nav_bottom_text">Connection</a></li>
+    <li><b><a href="savedconnections">Welcome <%=session.UserID%> </a></b></li>
+  </ul>
+</nav>
+<%}%>
+<!-- navigaion end -------------------------------------------------------->

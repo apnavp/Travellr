@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>New Connections</title>
+  <link href="/assets/stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- Header start for New connection -->
+  <%- include ('partials/header.ejs') %>
+  <!-- Header end for New connection -->
+
+  <!-- navigation start for New connection -->
+  <%- include ('partials/navigation.ejs') %>
+  <!-- navigation end for New connection -->
+
+  <!-- main start for New connection -->
+  <main>
+    <section>
+      <%if(inserted){%>
+      <div class="alert alert-success div_login" role="alert">
+        Connection added successfully <a href="connections" class="alert-link">Connections</a>. Follow the link.
+      </div>
+      <%}%>
+      <form id="contact-for" class="form_nc" method="POST" action="newConnection"  >
+        <!-- <div class="form_format"> -->
+        <div class="form_div">
+          <label id="Topic">Name of event</label>
+          <input id="connection_name" type="text" name="connection_name" placeholder="Name of event">
+          <% if(pageData[0]) { %>
+      <div class="alert alert-danger">
+        <%= pageData[0].msg %>
+      </div>
+      <% } %>
+      </div>
+      <div class="form_div">
+        <label id="name">Category</label>
+        <select id="connection_category" name="connection_category">
+          <option value="" disabled selected>Choose one</option>
+          <option value="Trek">Trek</option>
+          <option value="Trip">Trip</option>
+        </select>
+        <% if(pageData[1]) { %>
+        <div class="alert alert-danger">
+          <%= pageData[1].msg %>
+        </div>
+        <%}%>
+        </div>
+        <div class="form_div">
+          <label id="details">Start Location</label>
+          <input id="start_location" type="text" placeholder="Start location"  name="start_location" >
+          <% if(pageData[2]) { %>
+        <div class="alert alert-danger">
+          <%= pageData[2].msg %>
+        </div>
+        <%}%>
+        </div>
+        <div class="form_div">
+          <label id="when">Start Date</label>
+          <input type="date" id="when" name="date">
+          <% if(pageData[3]) { %>
+        <div class="alert alert-danger">
+          <%= pageData[3].msg %>
+        </div>
+        <%}%>
+        </div>
+        <div class="form_div">
+          <label id="when">Start Time</label>
+          <input type="time" id="when" name="time">
+          <% if(pageData[4]) { %>
+        <div class="alert alert-danger">
+          <%= pageData[4].msg %>
+        </div>
+        <%}%>
+        </div>
+        <div class="form_div">
+          <label id="details">Details</label>
+          <textarea rows="8" id="Details" placeholder="Details of the event" name="details" ></textarea>
+          <% if(pageData[5]) { %>
+        <div class="alert alert-danger">
+          <%= pageData[5].msg %>
+        </div>
+        <%}%>
+        </div>
+        <!-- <div class="form_div">
+          <label id="Image">Image</label>
+          <input type="file" id="Image" placeholder="Details of the event" name="image"  >
+        </div> -->
+          <input type="submit" class="submit_bttn" value="submit" />
+      </form>
+    </section>
+  </main>
+  <!-- main end for New connection -->
+
+  <!-- footer start for New connection -->
+  <%- include ('partials/footer.ejs') %>
+        <!-- footer end for New connection -->
+</body>
+
+</html>

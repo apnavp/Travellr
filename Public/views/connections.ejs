@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Connections</title>
+  <link href="/assets/stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- Header start for Connections -->
+  <%- include ('partials/header.ejs') %>
+  <!-- Header end for Connections -->
+
+  <!-- navigation start for Connections -->
+  <%- include ('partials/navigation.ejs') %>
+  <!-- navigation end for Connections -->
+
+  <!-- main start for Connections -->
+  <main>
+    <section>
+
+      <% for(j=0;j<=uc.length-1 ;j++){ %>
+      <article>
+        <header>
+          <h3 class="sec_header"><%= uc[j] %>
+          </h3>
+        </header>
+        <ul>
+          <% for(i=0;i<=qs.length-1;i++){
+                if(qs[i].connection_category==uc[j]){ %>
+          <li class="li_category">
+            <a href="../connection?ID=<%=qs[i].connectionID%>">
+              <%= qs[i].connection_name%></a></li>
+          <% } %>
+          <%} %>
+        </ul>
+      </article>
+      <%}%>
+    </section>
+  </main>
+  <!-- main end for Connections -->
+
+  <!-- footer start for Connections -->
+  <%- include ('partials/footer.ejs') %>
+      <!-- footer end for Connections -->
+</body>
+
+</html>

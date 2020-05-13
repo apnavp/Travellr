@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Saved Coneections</title>
+  <link href="/assets/stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- Header start for Saved connections -->
+  <%- include ('partials/header.ejs') %>
+  <!-- Header end for New connection -->
+  <!-- navigation start for Saved connections-->
+  <%- include ('partials/navigation.ejs') %>
+  <!-- navigation end for Saved connections-->
+  <!-- main start for Saved connections -->
+  <main>
+    <section>
+      <div>
+        <header>
+          <h4><%=session.UserID%>'s Connections</h4>
+        </header>
+        <table>
+          <tr>
+            <th>Connections</th>
+            <th>Category</th>
+            <th>Going?</th>
+            <th>Action</th>
+          </tr>
+          <% for(var i=0; i< qs.UserConnections.length ;i++) { %>
+          <tr>
+            <td> <img class="s_img" src="<%= qs.UserConnections[i].Connection.imageurl%>" alt="no image">
+              <%= qs.UserConnections[i].Connection.connection_name%></td>
+            <td><%= qs.UserConnections[i].Connection.connection_category%> </td>
+            <td><%= qs.UserConnections[i].RSVP%> </td>
+            <td>
+              <button class="sc_button"
+                onclick="window.location.href = './connection?ID=<%= qs.UserConnections[i].Connection.connectionID %>';">Update</button>
+              <button class="sc_button"
+                onclick="window.location.href = 'savedConnections?ID=<%= qs.UserConnections[i].Connection.connectionID %>&action=delete';">Delete</button>
+            </td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </section>
+  </main>
+  <!-- main end for Saved connections -->
+  <!-- footer start for Saved connections -->
+  <%- include ('partials/footer.ejs') %>
+  <!-- footer end for Saved connections -->
+</body>
+</html>
