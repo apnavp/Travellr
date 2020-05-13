@@ -44,6 +44,8 @@ router.post('/', urlencodedParser,
             min: 5
         })
         .withMessage('password should contain atleast 5 characters.')
+        // .matches('password2')
+        // .withMessage('Passwords must match.')
         .escape(),
 
         check("password2")
@@ -55,18 +57,27 @@ router.post('/', urlencodedParser,
             min: 5
         })
         .withMessage('password should contain atleast 5 characters.')
-        // custom validator to check for entered date greater than current date
-        .custom((value,{ request }) => {
-            pass1=request.body.password1
-          console.log("this is passsword1" + pass1);
-          console.log("this is password2" + value);
-          if (pass2 == value) {
-            return true
-          }
-          return false
-        })
-        .withMessage('Date should be greater than the current date.')
 
+        .custom((value, {req, loc, path}) => {
+            if (value == req.body.password1) {
+                return true;
+            } else {
+                return false;
+            }
+        }).withMessage("Passwords don't match.")
+        // custom validator to check for entered date greater than current date
+        // .custom((value,{request}) => {
+        //     pass1=request.body.password1;
+        //   console.log("this is passsword1" + pass1);
+        //   console.log("this is password2" + value);
+        //   if (pass2 == value) {
+        //     return true
+        //   }
+        //   return false
+        // })
+        // .withMessage('Date should be greater than the current date.')
+        // .matches('password1')
+        // .withMessage('Passwords must match.')
         .escape(),
 
         check("fname")

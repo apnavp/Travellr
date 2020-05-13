@@ -5,7 +5,6 @@ var bodyParser = require('body-parser');
 var userProfile = require('../model/UserProfile');
 var session = require('cookie-session');
 var userDbUtil = require('../utility/UserDB');
-
 var connectionDB = require('../utility/connectionDB');
 var UserConnectionObject = require('../model/UserConnection.js');
 var userProfileDB = require('../utility/UserProfileDB.js');
