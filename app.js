@@ -51,6 +51,9 @@ app.use('/*', index);
 // paths for index,connection,connections,abbout,contact,newConnection,Savedconnection end
 
 // server Start
-app.listen(8084);
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Express server listening on port', port)
+});
 console.log("Listenting to port 8084");
 //server end
