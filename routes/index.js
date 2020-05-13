@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var utility = require('../utility/connectionDB.js');
-var profileController = require('../controller/ProfileController.js');
+var profileController = require('../Controller/ProfileController.js');
 // express app and router requires end
 
 // Routing for index start
