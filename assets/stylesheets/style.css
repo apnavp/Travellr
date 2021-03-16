@@ -41,8 +41,8 @@ body {
   background-color: #F0F0F0;
   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
   font-size: 15px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 
 }
 
@@ -74,7 +74,7 @@ li {
   margin-left: 15px;
   margin-right: 15px;
   font-size: 17px;
-  padding-bottom: 0.5%;
+  /* padding-bottom: 0.5%; */
 }
 
 .nav_top_spacing {
@@ -89,7 +89,13 @@ li {
 .nav_top li:first-child {
   border-left: none;
 }
-
+/* .div_table {
+  margin-top: 40px;
+  margin-left: 50px;
+  margin-right: 40px;
+  padding: 5px;
+  margin-bottom: 50px;
+} */
 
 article {
   margin-top: 5px;
@@ -101,8 +107,9 @@ p {
 }
 
 footer {
+  clear: both;
   color: #038CB8;
-  position: static;
+  position: absolute;
   width: 100%;
   background: black;
   display: flex;
@@ -111,9 +118,9 @@ footer {
   align-items: center;
   font-size: 1px;
   bottom: 0;
-  height: 25px;
-  flex: 0 0 50px;
-  margin-top: auto;
+  height: 35px;
+  /* flex: 0 0 50px;
+  margin-top: auto; */
 }
 
 .footer_nav_li {
