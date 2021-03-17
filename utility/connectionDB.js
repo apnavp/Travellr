@@ -24,27 +24,26 @@ var connectionSchema = new Schema({
 var connectionDB = mongoose.model('connections', connectionSchema);
 
 // ||process.env.MONGODB_URI || 'mongodb://localhost/traveller'
-mongoose.connect("mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/traveller?retryWrites=true&w=majority"
-  , {
+mongoose.connect("mongodb+srv://apnav:apnavmongo@cluster0-0z1zv.mongodb.net/traveller?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log("we are connected with Traveller database");
+db.once('open', function() {
+  // console .log("we are connected with Traveller database");
 }, {
   useUnifiedTopology: true
 });
 
 
 // get connections function start
-var getConnections = function () {
-  console.log(connectionDB.find());
+var getConnections = function() {
+  // console.log(connectionDB.find());
   return new Promise(resolve => {
-    console.log(connectionDB);
-    resolve(connectionDB.find().then(function (allConnections) {
-      console.log("ingetconnections" + allConnections);
+    // console.log(connectionDB);
+    resolve(connectionDB.find().then(function(allConnections) {
+      // console.log("ingetconnections" + allConnections);
       var myList = [];
       for (i = 0; i <= allConnections.length - 1; i++) {
         let connection = new connectionModel.connection(
@@ -66,11 +65,11 @@ var getConnections = function () {
 
 
 // get connection function start
-var getConnection = async function (connectionID) {
+var getConnection = async function(connectionID) {
 
   return await connectionDB.find({
     connectionID: connectionID
-  }).then(function (detailedConnection) {
+  }).then(function(detailedConnection) {
     console.log("this is connection is", connectionID);
     for (i = 0; i < detailedConnection.length; i++) {
       if (detailedConnection[i].connectionID == connectionID) {

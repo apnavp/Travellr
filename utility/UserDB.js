@@ -1,4 +1,4 @@
-﻿// require the user model from models start
+// require the user model from models start
 var User = require('../model/User.js')
 // require the user model from models end
 
@@ -34,39 +34,39 @@ var userSchema = new schema({
 var userModel = mongoose.model('users', userSchema);
 
 
-module.exports.getUser = function (UserID, password) {
+module.exports.getUser = function(UserID, password) {
   return new Promise(resolve => {
     resolve(userModel.findOne({
       UserID: UserID
-    }).then(function (data) {
+    }).then(function(data) {
       let users = [];
-      console.log("in mongo" + data);
+      // console.log("in mongo" + data);
       if (data) {
-       if(data.password == password){
-        let userAdd = new User(data.UserID,
-          data.firstName,
-          data.lastName,
-          data.emailAddress,
-          data.address1Field,
-          data.address2Field,
-          data.city,
-          data.state,
-          data.postCode,
-          data.country,
-          data.password
-        )
-        return userAdd;
-       }
-       console.log("password not correct");
-       return "password not correct";
-      }else
-        console.log("user does not exist");
-      return "user does not exist";
+        if (data.password == password) {
+          let userAdd = new User(data.UserID,
+            data.firstName,
+            data.lastName,
+            data.emailAddress,
+            data.address1Field,
+            data.address2Field,
+            data.city,
+            data.state,
+            data.postCode,
+            data.country,
+            data.password
+          )
+          return userAdd;
+        }
+        // console.log("password not correct");
+        return "password not correct";
+      } else
+        // console.log("user does not exist");
+        return "user does not exist";
     }));
   });
 }
 
-module.exports.addUser = async function (user) {
+module.exports.addUser = async function(user) {
 
   // var ans = connection.connection_category.slice(0, 2).toUpperCase();
   // ans += Math.random().toString(36).slice(5);
@@ -77,7 +77,7 @@ module.exports.addUser = async function (user) {
   // console.log("this is formated date" + f_date_time);
 
   var newUser = new userModel({
-    UserID:user.userID,
+    UserID: user.userID,
     firstName: user.fname,
     lastName: user.lname,
     emailAddress: user.email,

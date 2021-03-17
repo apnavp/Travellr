@@ -7,11 +7,11 @@ var session = require('cookie-session');
 
 
 // Routing for about connections start
-router.get('/', async function (request, response) {
+router.get('/', async function(request, response) {
   var ID = request.query.ID;
-  console.log("id not found");
+  // console.log("id not found");
   var listTrek = await utility.getConnection(ID);
-  console.log(listTrek);
+  // console.log(listTrek);
 
   if (listTrek == undefined) {
     var listTrek = await utility.getConnections();
@@ -20,7 +20,7 @@ router.get('/', async function (request, response) {
       categories.push(listTrek[i].connection_category)
     }
     var uniqueCat = categories.filter((v, i, a) => a.indexOf(v) === i);
-    console.log(uniqueCat);
+    // console.log(uniqueCat);
     response.render('connections.ejs', {
       qs: listTrek,
       uc: uniqueCat,

@@ -19,10 +19,10 @@ var urlencodedParser = bodyParser.urlencoded({
 var inserted = null;
 
 
-router.get('/', function (request, response) {
-  console.log("here inside new connection GET");
+router.get('/', function(request, response) {
+  // console.log("here inside new connection GET");
   if (request.session.theUser) {
-    console.log("inside new connection route js");
+    // console.log("inside new connection route js");
     inserted = false;
     response.render('newConnection.ejs', {
       pageData: [],
@@ -74,8 +74,8 @@ router.post('/', urlencodedParser,
     .custom((value) => {
       var GivenDate = new Date(value);
       var CurrentDate = new Date();
-      console.log("this is given date" + GivenDate);
-      console.log("this is today's date" + CurrentDate);
+      // console.log("this is given date" + GivenDate);
+      // console.log("this is today's date" + CurrentDate);
       if (GivenDate > CurrentDate) {
         return true
       }
@@ -102,11 +102,11 @@ router.post('/', urlencodedParser,
     .withMessage('Deatils should contain brief description')
     .escape()
   ],
-  async function (request, response, next) {
+  async function(request, response, next) {
     if (request.session.theUser) {
-      console.log("in new info new connection");
+      // console.log("in new info new connection");
       const errors = validationResult(request).array();
-      console.log(errors);
+      // console.log(errors);
       if (errors.length > 0) {
         let nameErrors = errors.find(val => {
           return val.param == "connection_name";
@@ -141,8 +141,8 @@ router.post('/', urlencodedParser,
         });
       } else {
         if (request.body != undefined) {
-          console.log(request.body);
-          await userProfileDB.addConnection(request.body, request.session.theUser.firstName).then(function () {
+          // console.log(request.body);
+          await userProfileDB.addConnection(request.body, request.session.theUser.firstName).then(function() {
             inserted = true;
             response.render('newConnection', {
               pageData: [],
@@ -164,7 +164,7 @@ router.post('/', urlencodedParser,
         });
       }
     } else {
-      console.log("user not logged in");
+      // console.log("user not logged in");
     }
     next();
   });
